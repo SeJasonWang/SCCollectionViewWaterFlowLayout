@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CellId" id="gTV-IL-0wX" customClass="SCTestCell">
+            <rect key="frame" x="0.0" y="0.0" width="134" height="184"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="134" height="184"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="JqZ-Ss-Oxv" userLabel="Image">
+                        <rect key="frame" x="0.0" y="0.0" width="134" height="184"/>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$99" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xYR-ln-N3u" userLabel="price">
+                        <rect key="frame" x="0.0" y="150" width="134" height="34"/>
+                        <color key="backgroundColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="0.35000000000000003" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="34" id="KLR-CG-DWw"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            </view>
+            <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="0.25098040700000002" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="xYR-ln-N3u" secondAttribute="bottom" id="1P9-Wk-7AB"/>
+                <constraint firstAttribute="trailing" secondItem="xYR-ln-N3u" secondAttribute="trailing" id="61r-36-4yf"/>
+                <constraint firstItem="xYR-ln-N3u" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="LoM-y9-MTs"/>
+                <constraint firstAttribute="bottom" secondItem="JqZ-Ss-Oxv" secondAttribute="bottom" id="TAC-iA-h4c"/>
+                <constraint firstItem="JqZ-Ss-Oxv" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="XF8-DK-sep"/>
+                <constraint firstItem="JqZ-Ss-Oxv" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="m7h-Eb-0sH"/>
+                <constraint firstAttribute="trailing" secondItem="JqZ-Ss-Oxv" secondAttribute="trailing" id="ttH-ZW-jKn"/>
+            </constraints>
+            <size key="customSize" width="134" height="184"/>
+            <connections>
+                <outlet property="imageView" destination="JqZ-Ss-Oxv" id="Sjp-AS-RIg"/>
+                <outlet property="priceLabel" destination="xYR-ln-N3u" id="x7D-kN-MCn"/>
+            </connections>
+            <point key="canvasLocation" x="252" y="285"/>
+        </collectionViewCell>
+    </objects>
+</document>
