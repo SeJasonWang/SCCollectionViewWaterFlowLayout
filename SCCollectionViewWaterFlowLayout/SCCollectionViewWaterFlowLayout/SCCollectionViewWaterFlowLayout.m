@@ -7,13 +7,15 @@
 //
 
 #import "SCCollectionViewWaterFlowLayout.h"
+#import "SCPinHeader.h"
+#import "SCSectionBackgroundView.h"
 
 static const CGSize kSCDefaultItemSize = {50, 50};
 static const NSInteger kSCDefaultNumberOfColumns = 2;
 static const NSInteger kSCDefaultNumberOfHeaders = 0;
 static const NSInteger kSCDefaultNumberOfFooters = 0;
-static const CGFloat kSCDefaultLineSpacing      = 5.0;
-static const CGFloat kSCDefaultInteritemSpacing = 5.0;
+static const CGFloat kSCDefaultLineSpacing      = 5;
+static const CGFloat kSCDefaultInteritemSpacing = 5;
 static const UIEdgeInsets kSCDefaultSectionInsets    = {0, 0, 0, 0};
 static const UIEdgeInsets kSCDefaultBackgroundInsets = {0, 0, 0, 0};
 static const UIEdgeInsets kSCDefaultHeaderInsets     = {0, 0, 0, 0};
@@ -53,44 +55,6 @@ struct {
     BOOL pinToHeaderVisibleBounds;
     BOOL didChangeHeaderPinnedStatus;
 } respondsToSelector;
-
-@interface SCPinHeader : NSObject
-
-@property (nonatomic, strong) UICollectionViewLayoutAttributes *attributes;
-@property (nonatomic, assign) CGFloat startY;
-@property (nonatomic, assign) CGFloat endY;
-@property (nonatomic, assign) CGFloat y;
-@property (nonatomic, assign) CGRect rect;
-
-@end
-
-@implementation SCPinHeader
-
-- (void)setY:(CGFloat)y {
-    if (_y != y) {
-        _y = y;
-        CGRect frame = self.attributes.frame;
-        frame.origin.y = y;
-        self.attributes.frame = frame;
-    }
-}
-
-@end
-
-@interface SCSectionBackgroundView : UICollectionReusableView
-
-@end
-
-@implementation SCSectionBackgroundView
-
-- (instancetype)initWithFrame:(CGRect)frame {
-    if (self = [super initWithFrame:frame]) {
-        self.backgroundColor = [UIColor whiteColor];
-    }
-    return self;
-}
-
-@end
 
 @interface SCCollectionViewWaterFlowLayout()
 
@@ -409,6 +373,7 @@ struct {
 
 /** 定位吸附位置 */
 - (void)layoutPinHeader:(SCPinHeader *)pinHeader offsetY:(CGFloat)offsetY {
+    offsetY += self.sectionHeadersPinToVisibleBoundsInsetTop;
     if (respondsToSelector.didChangeHeaderPinnedStatus) {
         if (offsetY <= pinHeader.startY || offsetY >= pinHeader.endY) {
             if (pinHeader.y > pinHeader.startY && pinHeader.y < pinHeader.endY) {

@@ -46,6 +46,8 @@
 		2509EC091CB76A980088B73D /* SCTestCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2509EBE81CB76A980088B73D /* SCTestCell.m */; };
 		2509EC0A1CB76A980088B73D /* SCTestCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2509EBE91CB76A980088B73D /* SCTestCell.xib */; };
 		2509EC0B1CB76A980088B73D /* SCTestModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2509EBEB1CB76A980088B73D /* SCTestModel.m */; };
+		2584A80C1CC0BFDF00F46DAB /* SCPinHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 2584A8091CC0BFDF00F46DAB /* SCPinHeader.m */; };
+		2584A80D1CC0BFDF00F46DAB /* SCSectionBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2584A80B1CC0BFDF00F46DAB /* SCSectionBackgroundView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -124,6 +126,10 @@
 		2509EBE91CB76A980088B73D /* SCTestCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SCTestCell.xib; sourceTree = "<group>"; };
 		2509EBEA1CB76A980088B73D /* SCTestModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCTestModel.h; sourceTree = "<group>"; };
 		2509EBEB1CB76A980088B73D /* SCTestModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCTestModel.m; sourceTree = "<group>"; };
+		2584A8081CC0BFDF00F46DAB /* SCPinHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCPinHeader.h; sourceTree = "<group>"; };
+		2584A8091CC0BFDF00F46DAB /* SCPinHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCPinHeader.m; sourceTree = "<group>"; };
+		2584A80A1CC0BFDF00F46DAB /* SCSectionBackgroundView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCSectionBackgroundView.h; sourceTree = "<group>"; };
+		2584A80B1CC0BFDF00F46DAB /* SCSectionBackgroundView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCSectionBackgroundView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -184,6 +190,10 @@
 			children = (
 				2509EBA21CB769BD0088B73D /* SCCollectionViewWaterFlowLayout.h */,
 				2509EBA31CB769BD0088B73D /* SCCollectionViewWaterFlowLayout.m */,
+				2584A8081CC0BFDF00F46DAB /* SCPinHeader.h */,
+				2584A8091CC0BFDF00F46DAB /* SCPinHeader.m */,
+				2584A80A1CC0BFDF00F46DAB /* SCSectionBackgroundView.h */,
+				2584A80B1CC0BFDF00F46DAB /* SCSectionBackgroundView.m */,
 			);
 			path = SCCollectionViewWaterFlowLayout;
 			sourceTree = "<group>";
@@ -412,9 +422,11 @@
 				2509EBF91CB76A980088B73D /* SDImageCache.m in Sources */,
 				2509EBFA1CB76A980088B73D /* SDWebImageCompat.m in Sources */,
 				2509EC061CB76A980088B73D /* UIView+WebCacheOperation.m in Sources */,
+				2584A80D1CC0BFDF00F46DAB /* SCSectionBackgroundView.m in Sources */,
 				2509EBF21CB76A980088B73D /* JSONAPI.m in Sources */,
 				2509EBF61CB76A980088B73D /* JSONValueTransformer.m in Sources */,
 				2509EBFD1CB76A980088B73D /* SDWebImageDownloaderOperation.m in Sources */,
+				2584A80C1CC0BFDF00F46DAB /* SCPinHeader.m in Sources */,
 				2509EBF31CB76A980088B73D /* JSONHTTPClient.m in Sources */,
 				2509EC051CB76A980088B73D /* UIImageView+WebCache.m in Sources */,
 				2509EC091CB76A980088B73D /* SCTestCell.m in Sources */,
@@ -534,6 +546,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = SCCollectionViewWaterFlowLayout/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.meilishuo.SCCollectionViewWaterFlowLayout;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -545,6 +558,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = SCCollectionViewWaterFlowLayout/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.meilishuo.SCCollectionViewWaterFlowLayout;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -570,6 +584,7 @@
 				2509EBA01CB769420088B73D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

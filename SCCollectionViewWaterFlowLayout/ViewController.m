@@ -52,7 +52,7 @@ static NSString * const ReusableViewID = @"ReusableView";
     layout.numberOfHeaders = 2;
     layout.numberOfFooters = 3;
     //    layout.sectionHeadersPinToVisibleBounds = YES;
-    //    layout.sectionFootersPinToVisibleBounds = YES;
+    layout.sectionHeadersPinToVisibleBoundsInsetTop = 50;
     
     UICollectionView *collectionView = [[UICollectionView alloc] initWithFrame:[UIScreen mainScreen].bounds collectionViewLayout:layout];
     collectionView.dataSource = self;
