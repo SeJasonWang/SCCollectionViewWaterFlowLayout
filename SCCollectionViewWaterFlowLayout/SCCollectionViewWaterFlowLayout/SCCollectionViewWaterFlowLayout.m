@@ -65,6 +65,7 @@ struct {
 @property (nonatomic, strong) NSMutableArray *itemAttrs;
 @property (nonatomic, strong) NSMutableArray *unionRects;
 @property (nonatomic, strong) NSMutableArray *showingAttrs;
+@property (nonatomic, strong) NSMutableDictionary *itemDictionary;
 
 // PinToVisibleBounds
 @property (nonatomic, strong) NSMutableArray *pinHeaders;
@@ -112,6 +113,7 @@ struct {
         self.unionRects = [NSMutableArray array];
         self.pinHeaders = [NSMutableArray array];
         self.showingPinHeaders = [NSMutableArray array];
+        self.itemDictionary = [NSMutableDictionary dictionary];
         for (NSUInteger section = 0; section < numOfSections; section++) {
             [self layoutHeadersInSection:section];
             [self layoutItemsInSection:section];
@@ -308,6 +310,7 @@ struct {
             }
         }
         [self.itemAttrs addObject:attr];
+        [self.itemDictionary setObject:attr forKey:indexPath];
     }
     CGFloat endY = [self maxYFromYs] + [self insetsForSectionAtIndex:section].bottom;
     self.y = endY;
@@ -323,6 +326,11 @@ struct {
         attr.zIndex = -1;
         [self.itemAttrs addObject:attr];
     }
+}
+
+- (UICollectionViewLayoutAttributes *)layoutAttributesForItemAtIndexPath:(NSIndexPath *)indexPath {
+    UICollectionViewLayoutAttributes *attr = [self.itemDictionary objectForKey:indexPath];
+    return attr;
 }
 
 /** 初始化所有footer属性 */
