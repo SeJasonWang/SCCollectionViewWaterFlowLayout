@@ -66,6 +66,8 @@ struct {
 @property (nonatomic, strong) NSMutableArray *unionRects;
 @property (nonatomic, strong) NSMutableArray *showingAttrs;
 @property (nonatomic, strong) NSMutableDictionary *itemDictionary;
+@property (nonatomic, strong) NSMutableDictionary *headerDictionary;
+@property (nonatomic, strong) NSMutableDictionary *footerDictionary;
 
 // PinToVisibleBounds
 @property (nonatomic, strong) NSMutableArray *pinHeaders;
@@ -114,6 +116,8 @@ struct {
         self.pinHeaders = [NSMutableArray array];
         self.showingPinHeaders = [NSMutableArray array];
         self.itemDictionary = [NSMutableDictionary dictionary];
+        self.headerDictionary = [NSMutableDictionary dictionary];
+        self.footerDictionary = [NSMutableDictionary dictionary];
         for (NSUInteger section = 0; section < numOfSections; section++) {
             [self layoutHeadersInSection:section];
             [self layoutItemsInSection:section];
@@ -218,6 +222,7 @@ struct {
             } else {
                 [self.itemAttrs addObject:attr];
             }
+            [self.headerDictionary setObject:attr forKey:indexPath];
         }
     }
 }
@@ -333,6 +338,16 @@ struct {
     return attr;
 }
 
+- (UICollectionViewLayoutAttributes *)layoutAttributesForSupplementaryViewOfKind:(NSString *)elementKind atIndexPath:(NSIndexPath *)indexPath {
+    if ([elementKind isEqualToString:SCCollectionViewWaterFlowSectionHeader]) {
+        return [self.headerDictionary objectForKey:indexPath];
+    } else if ([elementKind isEqualToString:SCCollectionViewWaterFlowSectionFooter]) {
+        return [self.footerDictionary objectForKey:indexPath];
+    } else {
+        return [UICollectionViewLayoutAttributes layoutAttributesForSupplementaryViewOfKind:elementKind withIndexPath:indexPath];
+    }
+}
+
 /** 初始化所有footer属性 */
 - (void)layoutFootersInSection:(NSInteger)section {
     CGFloat footerHeight = [self referenceHeightForFooterInSection:section];
@@ -360,6 +375,7 @@ struct {
             attr.frame = CGRectMake(x, y, w, h);
             self.y = y + h + insets.bottom;
             [self.itemAttrs addObject:attr];
+            [self.footerDictionary setObject:attr forKey:indexPath];
         }
     }
 }
